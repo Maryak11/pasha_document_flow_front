@@ -1,0 +1,62 @@
+@import 'swiper/swiper-bundle.min.css';
+
+* {
+  box-sizing: border-box;
+}
+html,
+body,
+#__nuxt,
+#__layout {
+  min-height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.2s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}
+.prose ul > li::before {
+  position: absolute;
+  content: '';
+  width: 10px;
+  height: 10px;
+  background-color: gray;
+  border-radius: 20px;
+  opacity: 0.5;
+  top: 9px;
+  left: -18px;
+}
+
+
+.accordion-enter-active {
+  transition: max-height 0.5s ease-in-out, opacity 0.5s 0.1s;
+  max-height: 100vh;
+}
+.accordion-enter,
+.accordion-leave-active {
+  transition: all 0.3s;
+  max-height: 100vh;
+}
+.accordion-enter,
+.accordion-leave-to {
+  opacity: 0;
+  max-height: 0px;
+}
+.shadows {
+  box-shadow: 0 5px 10px rgba(63, 78, 91, 0.2);
+  background: #fff;
+  border: 1px solid #eff3f6;
+}
+.ghost {
+  opacity: 0.3;
+  background: rgb(251, 211, 249);
+  border: 1px solid #012541;
+  border-radius: 8px;
+}
+
+
