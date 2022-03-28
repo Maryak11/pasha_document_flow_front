@@ -1,7 +1,14 @@
 <template>
-  <div>ЭТО ТУТ</div>
+  <div>{{ auth }}</div>
 </template>
 <script>
-export default {};
+export default {
+  layout: 'adminPanel',
+  computed: {
+    auth() {
+      return this.$auth.hasScope('admin');
+    },
+  },
+};
 </script>
 <style scoped></style>
