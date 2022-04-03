@@ -56,7 +56,7 @@ export default {
     redirect: {
       login: '/',
       logout: '/',
-      home: '/tasks',
+      home: '/projects',
     },
 
     strategies: {

@@ -12,5 +12,16 @@ export default (o, instance) => {
     registerUser(payload) {
       return instance(o).post(`/auth/register`, payload);
     },
+    getAllDivisions() {
+      return instance(o).get(`/divisions`);
+    },
+    getAllProjects(divisionId, status) {
+      return instance(o).get(`/projects`, {
+        params: {
+          divisionId,
+          status,
+        },
+      });
+    },
   };
 };
