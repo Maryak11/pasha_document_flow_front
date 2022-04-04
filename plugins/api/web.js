@@ -23,5 +23,8 @@ export default (o, instance) => {
         },
       });
     },
+    getOneProject(projectId) {
+      return instance(o).get(`/projects/${projectId}`);
+    },
   };
 };

@@ -1,65 +1,29 @@
 <template>
   <div
-    class="flex flex-col items-center md:items-stretch pb-10 p-10 md:rounded-xl bg-white text-dark-text xl:w-5/6"
+    class="flex flex-col items-center md:items-stretch pb-10 p-10 md:rounded-xl bg-white text-dark-text"
   >
     <div class="flex justify-between w-full items-center justify-center">
       <p class="text-3xl font-bold">Проекты</p>
       <CustomSelect
-        enteroption="Выберите категорию"
+        :enteroption="statuses[0].name"
         :options="mapBlogCategories"
         @selectedOption="setSelectOptionDivisions"
       />
       <CustomSelect
-        enteroption="Выберите категорию"
+        :enteroption="statuses[0].name"
         :options="statuses"
         @selectedOption="setSelectOptionStatus"
       />
-      <div class="relative group">
-        <div
-          class="flex gap-3 border rounded-md items-center p-3 hover:bg-gray-200 transition-all cursor-pointer"
-          @click="visibilityDivision = !visibilityDivision"
-        >
-          <p>{{ categoryName.length ? categoryName[0].name : 'Разделы категорий' }}</p>
-          <Icon
-            :classes="`w-3 h-3 cursor-pointer transition-all duration-300 transform ${
-              visibilityDivision ? '-rotate-90' : 'rotate-90'
-            }`"
-            name="arrow"
-          />
-        </div>
-        <transition name="accordion">
-          <div
-            v-if="visibilityDivision"
-            class="absolute z-20 w-max bg-white shadows rounded-md mt-2 right-0 p-4"
-          >
-            <div
-              v-for="item in divisions"
-              :key="item.id"
-              @click="visibilityDivision = !visibilityDivision"
-            >
-              <NuxtLink
-                exact
-                :to="`/blog/topic/${item.divisionTranslitName}/page`"
-                class="inline-block w-full p-2 hover:bg-gray-100 rounded-lg"
-              >
-                {{ item.divisionName }}
-              </NuxtLink>
-            </div>
-          </div>
-        </transition>
-      </div>
     </div>
-    <div key="1" class="flex flex-col gap-6 mt-8">
-      <div v-for="project in projects" :key="project.id" class="rounded-lg shadows p-4">
-        <div>Назыание проекта: {{ project.projectName }}</div>
-        <div class="flex gap-2">
-          <label>Отделы: </label>
-          <div v-for="div in project.divisions" :key="div.id" class="flex gap-2">
-            {{ div.divisionName }}
-          </div>
-        </div>
-      </div>
+    <div key="1" class="grid grid-cols-news gap-6 mt-8">
+      <ProjectCard
+        v-for="project in projects"
+        :key="project.id"
+        :project="project"
+        @projectCardClick="clickCard"
+      />
     </div>
+    <Modal :isopen="showModal" @closeModal="showModal = false">{{ currentProject }}</Modal>
   </div>
 </template>
 <script>
@@ -68,9 +32,10 @@ export default {
   data() {
     return {
       divisions: [],
-      visibilityDivision: false,
       divisionValue: 0,
+      showModal: false,
       statusValue: 'all',
+      currentProject: {},
       projects: [],
       statuses: [
         { value: 0, name: 'Показать все', translitName: 'all' },
@@ -112,6 +77,12 @@ export default {
       this.statusValue = status.translitName;
       console.log(this.statusValue);
       this.getProjects(this.divisionValue, this.statusValue);
+    },
+    async clickCard(id) {
+      console.log(id);
+      this.showModal = true;
+      const { data } = await this.$api.web().getOneProject(id);
+      this.currentProject = data;
     },
   },
 };

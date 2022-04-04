@@ -185,6 +185,7 @@ module.exports = {
       gap: ['group-hover', 'hover', 'last'],
       display: ['group-hover', 'hover'],
       scale: ['group-hover', 'hover'],
+      rotate: ['group-hover', 'hover'],
       translate: ['group-hover'],
     },
   },
