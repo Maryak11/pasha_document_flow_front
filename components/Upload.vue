@@ -2,17 +2,7 @@
   <div class="flex flex-col gap-7">
     <input ref="files" class="hidden" type="file" multiple @change="filesChange" />
     <div
-      class="
-        transition-all
-        border-dashed border-2 border-gray-300
-        cursor-pointer
-        flex
-        justify-center
-        items-center
-        rounded-xl
-        h-36
-        hover:bg-gray-50
-      "
+      class="transition-all border-dashed border-2 border-gray-300 cursor-pointer flex justify-center items-center rounded-lg h-36 hover:bg-gray-50"
       :class="{ 'bg-gray-50': dragging }"
       @drop="dragFile"
       @dragenter.prevent="dragging = true"
@@ -35,17 +25,7 @@
       >
         <span class="whitespace-nowrap text-white">{{ fileName(file.name) }}</span>
         <div
-          class="
-            flex
-            justify-center
-            items-center
-            bg-gray-100
-            p-1.5
-            rounded-full
-            cursor-pointer
-            hover:bg-gray-300
-            transition-all
-          "
+          class="flex justify-center items-center bg-gray-100 p-1.5 rounded-full cursor-pointer hover:bg-gray-300 transition-all"
           @click="() => removeCurrentFile(idx)"
         >
           <Icon name="close" classes="w-2 h-2" />
@@ -57,14 +37,14 @@
       <div class="mb-3 md:mb-0 w-full md:w-auto">
         <Button kind="purple" @click.native="uploadFiles">Загрузить файлы</Button>
       </div>
-      <div class="flex flex-col items-center w-full md:w-auto">
+      <!-- <div class="flex flex-col items-center w-full md:w-auto">
         <Button kind="purpleAlternative" @click.native="synchronizeFiles"
           >Синхронизировать файлы</Button
         >
         <div class="mt-2">
           <CheckboxSquare v-model="renameFilesFlag" /><span>&nbsp;Переименовать файлы</span>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>
@@ -92,6 +72,7 @@ export default {
     },
     filesChange(e) {
       this.$store.commit('files/addToUploadFiles', Array.from(e.target.files));
+      console.log(this.filesToUpload);
     },
     dragFile(e) {
       this.$store.commit('files/addToUploadFiles', Array.from(e.dataTransfer.files));
@@ -112,5 +93,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

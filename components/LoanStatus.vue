@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'rounded-xl',
+      'rounded-lg',
       'flex',
       'items-center',
       type === 'badPhoto' || type === 'rejection' || type === 'expired'
@@ -77,5 +77,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

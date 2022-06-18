@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      relative
-      bg-reviewsBg
-      p-8
-      shadows
-      rounded-xl
-      sm:shadow-xl
-      transition-all
-      hover:shadow-none
-      cursor-pointer
-      prose
-    "
+    class="relative bg-reviewsBg p-8 shadows rounded-lg sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
     @click.stop="
       $router.push({
         path: `/adminPanel/pages/${el.name}`,
@@ -20,22 +9,7 @@
   >
     <button
       v-if="adminpanel"
-      class="
-        flex
-        items-center
-        gap-3
-        absolute
-        border-2 border-bgStep
-        text-black
-        transform
-        scale-100
-        transition-all
-        hover:scale-110
-        p-2
-        rounded-lg
-        top-2
-        right-5
-      "
+      class="flex items-center gap-3 absolute border-2 border-bgStep text-black transform scale-100 transition-all hover:scale-110 p-2 rounded-lg top-2 right-5"
       @click.stop="deletePage"
     >
       <img class="h-3 w-3" src="~/assets/img/icons/cross.svg" alt="delete" />
@@ -78,5 +52,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

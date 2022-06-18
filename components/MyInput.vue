@@ -2,19 +2,7 @@
   <div class="flex flex-col sm:flex-row w-full justify-between sm:items-center">
     <label v-if="label" :for="id" class="text-base font-semibold mb-1">{{ label }}</label>
     <div
-      class="
-        cursor-text
-        flex
-        rounded-xl
-        relative
-        border border-gray-400
-        focus-within:border-dark-blue
-        gap-2
-        justify-between
-        text-sm
-        w-full
-        transition-all
-      "
+      class="cursor-text flex rounded-lg relative border border-gray-400 focus-within:border-dark-blue gap-2 justify-between text-sm w-full transition-all"
       :class="{
         'bg-gray-200': disabled,
         'bg-white': !disabled,
@@ -30,7 +18,7 @@
         :disabled="disabled"
         :autocomplete="auto"
         :class="{ 'uppercase px-5 py-3': promocode }"
-        class="outline-none w-full rounded-xl px-4 py-inputPad"
+        class="outline-none w-full rounded-lg px-4 py-inputPad"
         :placeholder="placeholder"
         @input="$emit('input', $event.target.value)"
         @focus="$emit('focus')"

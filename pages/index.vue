@@ -1,6 +1,6 @@
 <template>
   <div
-    class="w-full md:w-2/3 lg:w-3/5 xl:w-2/4 2xl:w-2/5 bg-white rounded-xl py-4 px-6 md:py-10 md:px-16 lg:py-14 lg:px-24"
+    class="w-full md:w-2/3 lg:w-3/5 xl:w-2/4 2xl:w-2/5 bg-white rounded-lg py-4 px-6 md:py-10 md:px-16 lg:py-14 lg:px-24"
   >
     <form class="flex flex-col justify-center gap-8" @submit.prevent="userLogin">
       <div class="flex justify-center">

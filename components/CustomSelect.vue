@@ -1,9 +1,9 @@
 <template>
-  <div class="relative mt-1 rounded-xl">
+  <div class="relative mt-1 rounded-lg">
     <div
       ref="select"
       tabindex="0"
-      class="flex rounded-xl border border-gray-300 bg-white min-w-265 focus:border-dark-blue text-sm px-5 pr-10 py-inputPad py- w-full cursor-pointer z-20 transition-all"
+      class="flex rounded-lg border border-gray-300 bg-white min-w-265 focus:border-dark-blue text-sm px-5 pr-10 py-inputPad py- w-full cursor-pointer z-20 transition-all"
       @click="visibilitySelect = !visibilitySelect"
     >
       {{ currentOption || enteroption || options[0].name }}
@@ -17,7 +17,7 @@
     <transition name="select">
       <ul
         v-if="visibilitySelect"
-        class="w-full absolute top-12 border border-inputBorDef rounded-xl color-dark-blue bg-selectBg z-20 break-all py-0.5 px-2.5 shadows"
+        class="w-full absolute top-12 border border-inputBorDef rounded-lg color-dark-blue bg-selectBg z-20 break-all py-0.5 px-2.5 shadows"
       >
         <li
           v-for="(el, index) in options"

@@ -1,17 +1,7 @@
 <template>
   <textarea
     :value="value"
-    class="
-      outline-none
-      w-full
-      py-3
-      rounded-xl
-      border border-gray-400
-      focus:border-dark-blue
-      px-4
-      resize-none
-      text-sm
-    "
+    class="outline-none w-full py-3 rounded-lg border border-gray-400 focus:border-dark-blue px-4 resize-none text-sm"
     :class="[high ? 'h-32' : 'h-full']"
     :placeholder="placeholder"
     @input="$emit('input', $event.target.value)"
@@ -36,5 +26,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

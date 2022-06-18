@@ -1,19 +1,6 @@
 <template>
   <div
-    class="
-      flex flex-col
-      bg-reviewsBg
-      gap-6
-      p-6
-      rounded-xl
-      border
-      hover:border-transparent
-      transition-all
-      cursor-pointer
-      transform
-      group
-      hover:scale-105 hover:shadow-lg
-    "
+    class="flex flex-col bg-reviewsBg gap-6 p-6 rounded-lg border hover:border-transparent transition-all cursor-pointer transform group hover:scale-105 hover:shadow-lg"
     @click="$router.push({ path: `vacancy/${el.id}` })"
   >
     <h1 class="text-2xl font-semibold">{{ el.name }}</h1>

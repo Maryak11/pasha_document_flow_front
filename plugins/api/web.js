@@ -15,16 +15,42 @@ export default (o, instance) => {
     getAllDivisions() {
       return instance(o).get(`/divisions`);
     },
-    getAllProjects(divisionId, status) {
+    getAllProjects(divisionId, status, userId) {
       return instance(o).get(`/projects`, {
         params: {
           divisionId,
           status,
+          userId,
         },
       });
     },
     getOneProject(projectId) {
       return instance(o).get(`/projects/${projectId}`);
+    },
+    getTasksByProject(projectId, userId, status) {
+      return instance(o).get(`/tasks`, {
+        params: {
+          projectId,
+          userId,
+          status,
+        },
+      });
+    },
+    getUsersForAddProject(projectId) {
+      return instance(o).get(`/users/project`, {
+        params: {
+          projectId,
+        },
+      });
+    },
+    updateProject(projectId, payload) {
+      return instance(o).post(`/projects/${projectId}`, payload);
+    },
+    addTask(payload) {
+      return instance(o).post(`/task`, payload);
+    },
+    getOneTask(id) {
+      return instance(o).get(`/task/${id}`);
     },
   };
 };

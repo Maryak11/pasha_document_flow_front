@@ -48,7 +48,7 @@ export default {
         'flex',
         'justify-center',
         'items-center',
-        'rounded-xl',
+        'rounded-lg',
         'font-bold',
         'p-3',
         'transition-all',

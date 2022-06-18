@@ -1,7 +1,7 @@
 <template>
   <div
     :class="[
-      'rounded-xl',
+      'rounded-lg',
       'md:border md:border-dark-blue',
       'md:bg-none',
       'hover:bg-none',

@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full asd border border-gray-400 rounded-xl p-2 focus-within:border-dark-blue">
+  <div class="w-full asd border border-gray-400 rounded-lg p-2 focus-within:border-dark-blue">
     <menu-bar :editor="editor" />
     <hr class="bg-gray-400 h-0.5 my-2" />
     <editor-content class="border-none px-3" :editor="editor" />
@@ -98,10 +98,7 @@ export default {
 <style>
 .ProseMirror {
   border: none;
-  min-height: 400px;
-}
-.asd {
-  min-height: 504px;
+  min-height: 250px;
 }
 
 .ProseMirror:focus-visible {

@@ -12,7 +12,7 @@
     <transition name="answer">
       <div
         v-if="openQuestion && question"
-        class="absolute top-12 bg-reviewsBg p-6 rounded-xl question"
+        class="absolute top-12 bg-reviewsBg p-6 rounded-lg question"
       >
         <p>
           В случае непредвиденных ситуаций «Деньги На Дом» готов продлить срок возврата денег до

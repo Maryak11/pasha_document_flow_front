@@ -2,7 +2,7 @@
   <transition name="fade">
     <div
       ref="faq"
-      class="relative bg-reviewsBg p-8 rounded-xl sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
+      class="relative bg-reviewsBg p-8 rounded-lg sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
       @click="$router.push({ path: `faq/${el.id}` })"
     >
       <button

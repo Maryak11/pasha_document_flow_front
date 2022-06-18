@@ -27,21 +27,7 @@
     <transition name="fade">
       <div
         v-if="isOpen"
-        class="
-          absolute
-          md:w-104
-          w-screen
-          top-16
-          md:top-12
-          left-0
-          right-0
-          md:-left-24
-          rounded-xl
-          bg-white
-          pt-6
-          z-40
-          shadow-notifications
-        "
+        class="absolute md:w-104 w-screen top-16 md:top-12 left-0 right-0 md:-left-24 rounded-lg bg-white pt-6 z-40 shadow-notifications"
       >
         <h4 class="text-xs text-notifications-text-purple uppercase ml-5 mb-2">Уведомления</h4>
         <ul class="max-h-notifications customScroll">

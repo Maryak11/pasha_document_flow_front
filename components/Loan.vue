@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="[bg, 'text-black', 'flex', 'flex-col', 'rounded-xl', narrow ? 'my-2 gap-3' : 'gap-5']"
+    :class="[bg, 'text-black', 'flex', 'flex-col', 'rounded-lg', narrow ? 'my-2 gap-3' : 'gap-5']"
   >
     <div
       class="flex justify-between"

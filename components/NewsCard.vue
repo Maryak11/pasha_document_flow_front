@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative bg-reviewsBg p-8 shadows rounded-xl sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
+    class="relative bg-reviewsBg p-8 shadows rounded-lg sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
     @click.stop="
       $router.push({
         path: `${$route.name.includes('adminPanel') ? '/adminPanel' : ''}/news/${el.name}`,
@@ -55,5 +55,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

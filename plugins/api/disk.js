@@ -4,6 +4,7 @@ export default (c, instance) => {
       return instance(c).get(`/filesUpload/${page}`);
     },
     uploadFiles(files) {
+      console.log(files);
       return instance(c).post(`/filesUpload?userId=${c.$auth.user.id}`, files);
     },
     uploadFilesForApplication(files) {

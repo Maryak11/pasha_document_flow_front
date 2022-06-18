@@ -10,7 +10,7 @@
       <aside class="w-3/12 hidden xl:block">
         <MessageView :options="notification" />
         <NavigationMenu />
-        <div v-if="$route.name !== 'getMoney'" class="p-4 bg-gray-100 rounded-xl">
+        <div v-if="$route.name !== 'getMoney'" class="p-4 bg-gray-100 rounded-lg">
           <Loan narrow bgcolor="gray-100" />
         </div>
       </aside>
@@ -28,17 +28,7 @@
             class="relative group"
           >
             <div
-              class="
-                flex
-                gap-3
-                border
-                rounded-md
-                items-center
-                p-3
-                hover:bg-gray-200
-                transition-all
-                cursor-pointer
-              "
+              class="flex gap-3 border rounded-md items-center p-3 hover:bg-gray-200 transition-all cursor-pointer"
               @click="visibilityCategory = !visibilityCategory"
             >
               <p>{{ categoryName.length ? categoryName[0].name : 'Разделы категорий' }}</p>

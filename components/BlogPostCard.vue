@@ -1,17 +1,6 @@
 <template>
   <div
-    class="
-      relative
-      bg-reviewsBg
-      p-8
-      shadows
-      rounded-xl
-      sm:shadow-xl
-      transition-all
-      hover:shadow-none
-      cursor-pointer
-      prose
-    "
+    class="relative bg-reviewsBg p-8 shadows rounded-lg sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
     @click.stop="
       $router.push({
         path: `${$route.name.includes('adminPanel') ? '/adminPanel' : ''}/blog/${
@@ -22,22 +11,7 @@
   >
     <button
       v-if="adminpanel"
-      class="
-        flex
-        items-center
-        gap-3
-        absolute
-        border-2 border-bgStep
-        text-black
-        transform
-        scale-100
-        transition-all
-        hover:scale-110
-        p-2
-        rounded-lg
-        top-1
-        right-1
-      "
+      class="flex items-center gap-3 absolute border-2 border-bgStep text-black transform scale-100 transition-all hover:scale-110 p-2 rounded-lg top-1 right-1"
       @click.stop="deleteBlogPost"
     >
       <img class="h-3 w-3" src="~/assets/img/icons/cross.svg" alt="delete" />
@@ -62,7 +36,7 @@
     <div>
       <img
         v-if="el.blogImageLink"
-        class="mr-6 my-3 xl:w-1/3 lg:w-1/2 rounded-xl"
+        class="mr-6 my-3 xl:w-1/3 lg:w-1/2 rounded-lg"
         align="left"
         :src="el.blogImageLink"
         alt=""
@@ -120,5 +94,4 @@ export default {
 };
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

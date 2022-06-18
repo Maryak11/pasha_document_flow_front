@@ -1,11 +1,12 @@
 <template>
   <div
-    class="relative flex flex-col gap-2 rounded-lg shadows p-6 cursor-pointer transform hover:-translate-y-1 transition-all"
+    class="relative flex flex-col justify-between gap-2 rounded-lg shadows p-6 cursor-pointer transform hover:-translate-y-1 transition-all"
+    @click="$router.push(`projects/${project.id}`)"
   >
     <p class="font-bold text-xl mb-4">{{ project.projectName }}</p>
-    <div class="flex gap-2">
+    <div class="flex flex-wrap gap-2">
       <label>Отделы: </label>
-      <div v-for="div in project.divisions" :key="div.id" class="flex gap-2">
+      <div v-for="div in project.divisions" :key="div.id" class="flex gap-2 flex-wrap">
         <p class="font-bold">{{ div.divisionName }}</p>
       </div>
     </div>
@@ -18,7 +19,7 @@
       <p>{{ project.createdAt | dateFormat }}</p>
     </div>
     <div
-      class="absolute bottom-3 right-3 rounded-full w-4 h-4"
+      class="absolute left-0 top-0 w-0.5 h-full"
       :class="{
         'bg-yellow-600': project.status === 'open',
         'bg-green-600': project.status === 'close',
@@ -40,6 +41,9 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {};
   },
 };
 </script>

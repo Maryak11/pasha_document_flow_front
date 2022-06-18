@@ -11,7 +11,7 @@
         <NuxtLink
           v-for="el in links"
           :key="el.title"
-          class="flex px-4 py-2.5 rounded-xl mb-2"
+          class="flex px-4 py-2.5 rounded-lg mb-2"
           :to="el.path"
           :class="{ 'nuxt-link-active': isRouteActive(el.path) }"
           no-prefetch

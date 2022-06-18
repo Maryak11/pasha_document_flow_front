@@ -142,7 +142,7 @@ module.exports = {
       gridTemplateColumns: {
         recieveMethodsMobile: '1',
         recieveMethods: 'repeat(auto-fill, minmax(144px, 1fr));',
-        partnerCol: 'repeat(auto-fill, minmax(190px, 1fr));',
+        partnerCol: 'repeat(auto-fill, minmax(250px, 1fr));',
         loanOptions: 'repeat(auto-fit, minmax(280px, 1fr));',
         news: 'repeat(auto-fit, minmax(310px, 1fr));',
         footerElements: 'repeat(auto-fit, minmax(100px, 1fr));',
@@ -152,6 +152,8 @@ module.exports = {
         footerTablet: 'repeat(auto-fit, minmax(280px, 1fr))',
         payMethods: 'repeat(auto-fit, minmax(168px, 1fr));',
         mobilePreparationCol: '1fr 10fr;',
+
+        filesPreview: 'repeat(auto-fill, minmax(110px, 1fr))',
       },
       gridTemplateRows: {
         mobilePreparationRow: 'repeat(2, 30px)',
@@ -159,6 +161,7 @@ module.exports = {
       },
       gridAutoRows: {
         '1fr': '1fr',
+        filesPreview: '110px',
       },
       zIndex: {
         60: 60,

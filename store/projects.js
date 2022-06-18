@@ -2,25 +2,11 @@ import { getField, updateField } from 'vuex-map-fields';
 import { setMany } from 'vue-set-path';
 
 export const state = () => ({
-  newsList: [],
-  newsPublishedList: [],
-  currentNews: {},
-  filter: '',
-  publishedNews: false,
-  newsTitle: '',
-  newsMetaTitle: '',
-  newsMetaKeyWords: '',
-  newsMetaDescription: '',
-  newsBody: '',
-  newsImageLink: '',
-  newNewsTitle: '',
-  newNewsMetaTitle: '',
-  newNewsMetaKeyWords: '',
-  newNewsMetaDescription: '',
-  newNewsBody: '',
-  newNewsImageLink: '',
-  newsPagesCount: 1,
-  paginationConditionHelper: 0,
+  projectName: '',
+  customer: '',
+  status: '',
+  divisionsForProject: [],
+  usersForProject: [],
 });
 
 export const getters = {
@@ -40,49 +26,18 @@ export const mutations = {
 };
 
 export const actions = {
-  async getAllNews({ state, commit }, { page, adminPanel, mainPage }) {
+  async getOneProject({ commit }, projectId) {
     try {
-      const request = {
-        page,
-        adminPanel,
-        filter: state.filter,
-      };
-      commit('updateField', { path: 'paginationConditionHelper', value: 0 });
-      const { data } = await this.$api.web().getAllNews(request);
-      adminPanel
-        ? this.$router.push(`/adminPanel/news/page/${page || 1}`)
-        : mainPage
-        ? this.$router.push('')
-        : this.$router.push(`/news/page/${page || 1}`);
+      const { data } = await this.$api.web().getOneProject(projectId);
       commit('setMany', {
-        newsList: data.rows,
-        paginationConditionHelper: 1,
-        newsPagesCount: Math.ceil(data.newsCount / data.newsPerPage),
+        projectName: data.projectName,
+        customer: data.customer,
+        status: data.status,
+        divisionsForProject: data.divisions,
+        usersForProject: data.users,
       });
     } catch (err) {
-      if (err.response?.status === 404) {
-        adminPanel
-          ? this.$router.push({ path: '/adminPanel/news/page/1' })
-          : this.$router.push({ path: '/news/page/1' });
-      }
-    }
-  },
-
-  async getOneNews({ commit }, { name, adminPanel }) {
-    try {
-      const { data } = await this.$api.web().getOneNews({ name, adminPanel });
-      commit('setMany', {
-        currentNews: data,
-        newsTitle: data.title,
-        newsBody: data.body,
-        newsImageLink: data.newsImageLink,
-        newsMetaTitle: data.name,
-        newsMetaKeyWords: data.metaKeywords,
-        newsMetaDescription: data.metaDescription,
-        publishedNews: data.published,
-      });
-    } catch (err) {
-      this.$router.push({ path: '/news/page/1' });
+      console.log(err);
     }
   },
 
@@ -144,30 +99,6 @@ export const actions = {
       };
       commit('updateField', { path: 'notification', value: notification }, { root: true });
       this.$router.go(-1);
-    } catch (err) {
-      const notification = {
-        type: 'error',
-        message: err.response.data.message,
-      };
-      commit('updateField', { path: 'notification', value: notification }, { root: true });
-    }
-  },
-
-  async deleteNews({ commit }, { name, page }) {
-    try {
-      const response = await this.$api.web().deleteNews(name);
-      const notification = {
-        type: 'success',
-        message: response.data.message,
-      };
-      commit('updateField', { path: 'notification', value: notification }, { root: true });
-      const request = {
-        page,
-        adminPanel: true,
-        filter: state.filter,
-      };
-      const res = await this.$api.web().getAllNews(request);
-      commit('updateField', { path: 'newsList', value: res.data.rows });
     } catch (err) {
       const notification = {
         type: 'error',

@@ -5,7 +5,7 @@
       'inline-block',
       'w-10',
       'h-6',
-      'rounded-xl',
+      'rounded-lg',
       'cursor-pointer',
       'transition-all',
       'hover:opacity-100',
@@ -18,8 +18,8 @@
       :checked="checked"
       @change="$emit('change', $event.target.checked)"
     />
-    <div class="absolute bg-gray-400 inset-0 transition-all rounded-xl"></div>
-    <div class="absolute h-5 w-5 bg-white left-0.5 top-0.5 rounded-xl transition-all"></div>
+    <div class="absolute bg-gray-400 inset-0 transition-all rounded-lg"></div>
+    <div class="absolute h-5 w-5 bg-white left-0.5 top-0.5 rounded-lg transition-all"></div>
   </label>
 </template>
 

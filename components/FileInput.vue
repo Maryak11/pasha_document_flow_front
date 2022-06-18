@@ -16,7 +16,7 @@
         'w-full',
         'text-sm',
         'whitespace-nowrap',
-        'rounded-xl',
+        'rounded-lg',
         'p-3',
         'transition-all',
         disabled ? 'opacity-20 bg-dark-blue text-white' : 'text-dark-blue',
@@ -83,5 +83,4 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style></style>

@@ -1,38 +1,11 @@
 <template>
   <transition name="fade">
     <div
-      class="
-        relative
-        bg-reviewsBg
-        p-4
-        px-6
-        pr-12
-        rounded-xl
-        sm:shadow-xl
-        transition-all
-        hover:shadow-none
-        cursor-pointer
-        prose
-      "
+      class="relative bg-reviewsBg p-4 px-6 pr-12 rounded-lg sm:shadow-xl transition-all hover:shadow-none cursor-pointer prose"
       @click="$router.push({ path: `vacancies/${el.cityTranslitName}/${el.translitTitle}` })"
     >
       <button
-        class="
-          flex
-          items-center
-          gap-3
-          absolute
-          border-2 border-bgStep
-          text-black
-          transform
-          scale-100
-          transition-all
-          hover:scale-110
-          p-2
-          rounded-lg
-          top-3
-          right-5
-        "
+        class="flex items-center gap-3 absolute border-2 border-bgStep text-black transform scale-100 transition-all hover:scale-110 p-2 rounded-lg top-3 right-5"
         @click.stop="deleteVacancy"
       >
         <img class="h-3 w-3" src="~/assets/img/icons/cross.svg" alt="delete" />

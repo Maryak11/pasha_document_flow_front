@@ -2,21 +2,7 @@
   <transition name="modal">
     <div
       v-if="isopen"
-      class="
-        fixed
-        z-50
-        top-0
-        left-0
-        right-0
-        bottom-0
-        bg-white
-        md:bg-dark-blue md:bg-opacity-80
-        flex
-        justify-center
-        items-center
-        px-0
-        md:px-10
-      "
+      class="fixed z-50 top-0 left-0 right-0 bottom-0 bg-white md:bg-dark-blue md:bg-opacity-80 flex justify-center items-center px-0 md:px-10"
       @mousedown="$emit('closeModal')"
     >
       <div
@@ -31,7 +17,7 @@
           'pb-6',
           'px-4',
           'md:px-10',
-          'rounded-xl',
+          'rounded-lg',
           'bg-white',
           'text-dark-text',
           'relative',

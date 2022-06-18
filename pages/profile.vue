@@ -1,12 +1,12 @@
 <template>
-  <div>{{ $auth.user }}</div>
+  <div>{{ $auth.user.id }}</div>
 </template>
 <script>
 export default {
   layout: 'adminPanel',
   computed: {
     auth() {
-      return this.$auth.hasScope('admin');
+      return this.$auth;
     },
   },
 };
