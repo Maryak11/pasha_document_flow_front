@@ -5,7 +5,7 @@
     <div
       class="flex flex-col md:flex-row mb-7 justify-between md:items-center group cursor-pointer"
     >
-      <div class="flex justify-between">
+      <div v-if="$auth.user.scope === 'admin'" class="flex justify-between">
         <button class="flex w-full mb-4 md:mb-0" @click.stop="showAddTask = !showAddTask">
           <img
             class="mr-4 transform scale-100 group-hover:scale-125 transition-all self-center"

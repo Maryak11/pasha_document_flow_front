@@ -15,7 +15,11 @@ import { mapFields } from 'vuex-map-fields';
 export default {
   data() {
     return {
-      links: [{ title: 'Профиль', svg: 'users', path: '/profile' }],
+      links: [
+        { title: 'Профиль', svg: 'users', path: '/profile' },
+        { title: 'Пользователи', svg: 'users', path: '/users' },
+        { title: 'Проекты', svg: 'list', path: '/projects' },
+      ],
     };
   },
 
