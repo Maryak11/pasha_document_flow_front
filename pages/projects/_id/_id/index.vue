@@ -31,7 +31,12 @@
       </div>
       <div class="flex flex-col gap-2">
         <Button kind="alternative" @click.native="openModal = true">Загрузить файлы</Button>
-        <Button kind="alternative" @click.native="openModalCloseTask = true">Закрыть задачу</Button>
+        <Button
+          v-if="task.status === 'open'"
+          kind="alternative"
+          @click.native="openModalCloseTask = true"
+          >Закрыть задачу</Button
+        >
       </div>
     </div>
     <Modal :isopen="openModal" @closeModal="openModal = false">
@@ -119,8 +124,22 @@ export default {
       this.files = data.files;
       this.status = data.status;
     },
-    closeTask() {
-      console.log('sadasd');
+    async closeTask() {
+      const { data } = await this.$api
+        .web()
+        .updateTask(this.$route.params.id, { ...this.task, status: 'close' });
+      const notification = {
+        type: 'success',
+        message: data.message,
+      };
+
+      this.$store.commit(
+        'updateField',
+        { path: 'notification', value: notification },
+        { root: true },
+      );
+      this.openModalCloseTask = false;
+      this.task.status = 'close';
     },
 
     setSelectOptionStatus(status) {

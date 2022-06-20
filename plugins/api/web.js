@@ -52,5 +52,8 @@ export default (o, instance) => {
     getOneTask(id) {
       return instance(o).get(`/task/${id}`);
     },
+    updateTask(id, payload) {
+      return instance(o).put(`/task/${id}`, payload);
+    },
   };
 };
