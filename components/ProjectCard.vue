@@ -25,12 +25,12 @@
         'bg-green-600': project.status === 'close',
       }"
     ></div>
-    <div
+    <!-- <div
       class="absolute top-3 right-3 transform hover:rotate-90 bg-white transition-all"
       @click.stop="$emit('projectCardClick', project.id)"
     >
       <Icon name="settings" classes="w-6 h-6 text-black " />
-    </div>
+    </div> -->
   </div>
 </template>
 

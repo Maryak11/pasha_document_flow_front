@@ -18,15 +18,6 @@
       </div>
       <div class="flex flex-col iyems-center gap-4">
         <Button type="submit" kind="primary" long textlg>Войти</Button>
-        <div class="flex justify-center">
-          <NuxtLink
-            to="/forgotPassword"
-            class="text-sm font-medium opacity-70 hover:opacity-100 cursor-pointer"
-            no-prefetch
-          >
-            Забыли пароль?
-          </NuxtLink>
-        </div>
       </div>
     </form>
   </div>
