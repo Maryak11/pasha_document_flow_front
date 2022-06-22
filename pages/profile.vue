@@ -1,5 +1,13 @@
 <template>
-  <div>{{ $auth.user.id }}</div>
+  <div>
+    <ul>
+      <li>Имя: {{ auth.user.displayedName }}</li>
+      <li>Email: {{ auth.user.email }}</li>
+      <li>Роль: {{ auth.user.scope }}</li>
+      <li>Отдел: {{ auth.user.divisionName }}</li>
+      <li>Дата регистрации: {{ auth.user.createdAt | dateFormat }}</li>
+    </ul>
+  </div>
 </template>
 <script>
 export default {

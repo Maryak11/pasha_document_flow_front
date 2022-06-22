@@ -19,7 +19,7 @@
           v-if="user.divisionId"
           :enteroption="enteroptionForScope"
           :options="optionScope"
-          @optionSelected="selectRole"
+          @selectedOption="selectRole"
         />
       </div>
       <div>
@@ -99,6 +99,7 @@ export default {
     },
     selectRole(opt) {
       this.user.scope = opt.name;
+      console.log(this.user.scope);
     },
     setSelectOptionDivisions(opt) {
       this.divisionId = opt.value;

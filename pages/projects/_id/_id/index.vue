@@ -136,6 +136,7 @@ export default {
       this.$store.commit(
         'updateField',
         { path: 'notification', value: notification },
+
         { root: true },
       );
       this.openModalCloseTask = false;

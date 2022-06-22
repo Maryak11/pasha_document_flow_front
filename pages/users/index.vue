@@ -70,6 +70,18 @@ import { generatePassword } from '~/plugins/helpers';
 
 export default {
   layout: 'adminPanel',
+
+  // async middleware({ redirect, $api, error }) {
+  //   try {
+  //     const { data } = await $api.web().getUser(this.$auth.user.id);
+  //     if (data.scope === 'user') {
+  //       return redirect('/projects');
+  //     }
+  //   } catch (err) {
+  //     error({ statusCode: 404 });
+  //   }
+  // },
+
   data: () => ({
     users: [],
     email: '',
@@ -132,12 +144,14 @@ export default {
         };
         if (this.password) {
           const response = await this.$api.web().registerUser(newUser);
+          console.log(response);
           const notification = {
             type: 'success',
             message: response.data.message,
           };
           this.$store.commit('updateField', { path: 'notification', value: notification });
-          this.users = [newUser, ...this.users];
+          this.users = [response.data.body, ...this.users];
+          this.$router.push('/users');
         } else {
           const notification = {
             type: 'error',
@@ -165,8 +179,8 @@ export default {
       this.$router.push({ path: `users/${user.id}` });
     },
     selectRole(opt) {
-      console.log(opt);
       this.role = opt.name;
+      console.log(this.role);
     },
   },
 };
